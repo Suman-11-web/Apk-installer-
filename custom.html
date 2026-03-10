@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Downloads | Powered by Suman</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* Epic dark animated gradient */
+        background: linear-gradient(270deg, #0f172a, #1e1b4b, #020617);
+        background-size: 600% 600%;
+        animation: bgmove 16s ease infinite;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        overflow-x: hidden;
+    }
+
+    @keyframes bgmove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Main Container for the cards */
+    .apps-container {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: stretch;
+        flex-wrap: wrap;
+        z-index: 10;
+        margin-top: 20px;
+    }
+
+    /* Individual App Cards */
+    .card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px 30px;
+        border-radius: 24px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        width: 100%;
+        max-width: 340px;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 60px rgba(0, 255, 157, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* App Icons/Logos */
+    .app-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px auto;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 36px;
+        font-weight: bold;
+        box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .icon-village {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+    }
+
+    .icon-nova {
+        background: linear-gradient(135deg, #f12711, #f5af19);
+    }
+
+    h2 {
+        font-size: 28px;
+        margin: 0 0 15px 0;
+        letter-spacing: 1px;
+    }
+
+    p {
+        opacity: 0.7;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        flex-grow: 1;
+    }
+
+    /* Glowing Download Buttons */
+    .download-btn {
+        display: inline-block;
+        padding: 16px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 14px;
+        text-decoration: none;
+        color: white;
+        transition: 0.4s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-village {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        box-shadow: 0 0 15px rgba(0, 114, 255, 0.4);
+    }
+
+    .btn-nova {
+        background: linear-gradient(45deg, #ff512f, #dd2476);
+        box-shadow: 0 0 15px rgba(255, 81, 47, 0.4);
+    }
+
+    .download-btn:hover {
+        transform: scale(1.05);
+        color: white;
+    }
+
+    .btn-village:hover {
+        box-shadow: 0 0 30px rgba(0, 198, 255, 0.6), 0 0 60px rgba(0, 114, 255, 0.4);
+    }
+
+    .btn-nova:hover {
+        box-shadow: 0 0 30px rgba(255, 81, 47, 0.6), 0 0 60px rgba(221, 36, 118, 0.4);
+    }
+
+    /* Epic Floating Particles */
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+        animation: float 12s infinite ease-in-out;
+        opacity: 0.5;
+        filter: blur(8px);
+        z-index: 1;
+    }
+
+    .circle:nth-child(1) { width: 150px; height: 150px; left: 5%; top: 20%; background: radial-gradient(circle, rgba(0, 255, 157, 0.4), transparent); animation-delay: 0s; }
+    .circle:nth-child(2) { width: 200px; height: 200px; right: 10%; bottom: 10%; background: radial-gradient(circle, rgba(255, 81, 47, 0.4), transparent); animation-delay: -3s; }
+    .circle:nth-child(3) { width: 100px; height: 100px; left: 40%; top: 70%; background: radial-gradient(circle, rgba(0, 198, 255, 0.4), transparent); animation-delay: -6s; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-40px) scale(1.1); }
+    }
+
+    .footer {
+        margin-top: 60px;
+        font-size: 13px;
+        letter-spacing: 3px;
+        opacity: 0.5;
+        text-transform: uppercase;
+        z-index: 10;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="apps-container">
+        
+        <div class="card">
+            <div>
+                <div class="app-icon icon-village">H</div>
+                <h2>HADINARU Village</h2>
+                <p>Explore temple updates, village news, local events, and community alerts.</p>
+            </div>
+           <a href="./static/HADINARU16s.apk" class="download-btn btn-village" download>
+           Download Apk
+           </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <div class="app-icon icon-nova">N</div>
+                <h2>Novasocial</h2>
+                <p>Connect with friends, upload stories, share reels, and chat via direct messaging.</p>
+            </div>
+           <a href="./static/Novasocial 1.apk" class="download-btn btn-nova" download>
+                ⬇ Download APK
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        POWERED BY SUMAN
+    </div>
+
+</body>
+</html>
